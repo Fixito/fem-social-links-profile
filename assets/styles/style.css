@@ -1,4 +1,6 @@
-@font-face {
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+/* @font-face {
   font-family: 'Inter';
   src: url('../fonts/static/Inter-Regular.ttf') format('truetype');
   font-weight: 400;
@@ -14,7 +16,7 @@
   font-family: 'Inter';
   src: url('../fonts/static/Inter-Bold.ttf') format('truetype');
   font-weight: 700;
-}
+} */
 
 * {
   margin: 0;
@@ -24,7 +26,7 @@
 
 :root {
   /* Colors */
-  --clr-primary: hsl(75, 94%, 57%);
+  --clr-accent: hsl(75, 94%, 57%);
 
   /* Neutral */
   --clr-neutral-1: hsl(0, 0%, 20%);
@@ -32,12 +34,12 @@
 
   /* Rest of colors */
   --white: hsl(0, 0%, 100%);
-  --off-black: hsl(0, 0%, 8%);
+  --black: hsl(0, 0%, 8%);
 
   /* Typography */
-  --fs-xs: 0.75rem;
-  --fs-base: 0.875rem;
-  --fs-xl: 1.375rem;
+  --fs-sm: 0.875rem;
+  --fs-base: 1rem;
+  --fs-xl: 1.5rem;
 
   /* Fonts */
   --ff-sans: 'Inter', sans-serif;
@@ -46,21 +48,21 @@
   --fw-bold: 700;
 
   /* Rest of vars */
-  --rounded-md: 0.375rem;
+  --rounded-lg: 0.5rem;
   --rounded-xl: 0.75rem;
-  --card-size: 20rem;
+  --card-size: 24rem;
 }
 
 html {
-  font-family: var(--ff-sans);
-  font-weight: var(--fw-normal);
-  line-height: normal;
-  color: var(--white);
+  line-height: 1.5;
 }
 
 body {
-  background-color: var(--off-black);
+  background-color: var(--black);
+  color: var(--white);
+  font-family: var(--ff-sans);
   font-size: var(--fs-base);
+  font-weight: var(--fw-normal);
 }
 
 main {
@@ -70,7 +72,7 @@ main {
 }
 
 @media screen and (max-width: 640px) {
-  main {
+  body {
     padding-inline: 1rem;
   }
 }
@@ -98,54 +100,56 @@ a {
 }
 
 .profile-card {
-  width: var(--card-size);
+  max-width: var(--card-size);
   background-color: var(--clr-neutral-2);
   text-align: center;
   border-radius: var(--rounded-xl);
-  padding: 1rem;
+  padding: 2.5rem;
 }
 
 .profile-card__img {
-  width: 80px;
+  width: 5.5rem;
+  aspect-ratio: 1/1;
   border-radius: 100%;
   margin-inline: auto;
 }
 
 .profile-card__name {
+  font-size: 1.5rem;
   margin-top: 1em;
-  font-size: 1.25rem;
 }
 
 .profile-card__location {
-  color: var(--clr-primary);
-  font-weight: 600;
-  font-size: var(--fs-xs);
-  margin-top: 0.5em;
+  color: var(--clr-accent);
+  font-weight: var(--fw-bold);
+  font-size: var(--fs-sm);
+  margin-top: 0.25rem;
 }
 
 .profile-card__quote {
   display: block;
-  margin-top: 1em;
-  font-size: var(--fs-xs);
+  margin-top: 1.5rem;
+  font-size: var(--fs-sm);
 }
 
 .profile-card__social-links {
-  margin-top: 1em;
+  margin-top: 1.5em;
+}
+
+.profile-card__social-links > * {
+  margin-top: 1rem;
 }
 
 .profile-card__social-link {
   background-color: var(--clr-neutral-1);
-  padding: 0.5rem;
-  border-radius: var(--rounded-md);
-  font-weight: 700;
+  padding: 0.75rem;
+  border-radius: var(--rounded-lg);
+  font-size: var(--fs-sm);
+  font-weight: var(--fw-bold);
   cursor: pointer;
 }
 
 .profile-card__social-link:hover {
-  background-color: var(--clr-primary);
+  background-color: var(--clr-accent);
   color: var(--clr-neutral-2);
-}
-
-.profile-card__social-links > * {
-  margin-top: 1em;
 }
