@@ -1,6 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
-
-/* @font-face {
+@font-face {
   font-family: 'Inter';
   src: url('../fonts/static/Inter-Regular.ttf') format('truetype');
   font-weight: 400;
@@ -16,7 +14,7 @@
   font-family: 'Inter';
   src: url('../fonts/static/Inter-Bold.ttf') format('truetype');
   font-weight: 700;
-} */
+}
 
 * {
   margin: 0;
@@ -100,6 +98,7 @@ a {
 }
 
 .profile-card {
+  width: 100%;
   max-width: var(--card-size);
   background-color: var(--clr-neutral-2);
   text-align: center;
