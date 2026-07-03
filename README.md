@@ -4,13 +4,15 @@ This is a solution to the [Social links profile challenge on Frontend Mentor](ht
 
 ## Table of contents
 
-- [Overview](#overview)
-  - [The challenge](#the-challenge)
-  - [Screenshot](#screenshot)
-  - [Links](#links)
-- [My process](#my-process)
-  - [Built with](#built-with)
-- [Author](#author)
+- [Frontend Mentor - Social links profile solution](#frontend-mentor---social-links-profile-solution)
+  - [Table of contents](#table-of-contents)
+  - [Overview](#overview)
+    - [The challenge](#the-challenge)
+    - [Screenshot](#screenshot)
+    - [Links](#links)
+  - [My process](#my-process)
+    - [Built with](#built-with)
+  - [Author](#author)
 
 ## Overview
 
@@ -22,7 +24,7 @@ Users should be able to:
 
 ### Screenshot
 
-![Social Link Profile Component Screenshot](./screenshot.png)
+![Social Link Profile Component Screenshot](.github/screenshot.webp)
 
 ### Links
 
