@@ -1,154 +1,201 @@
-@font-face {
-  font-family: 'Inter';
-  src: url('../fonts/static/Inter-Regular.ttf') format('truetype');
-  font-weight: 400;
-}
+@layer reset, tokens, theme, base, app, utilities;
 
 @font-face {
-  font-family: 'Inter';
-  src: url('../fonts/static/Inter-SemiBold.ttf') format('truetype');
-  font-weight: 600;
+  font-family: InterVariable;
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('../fonts/InterVariable.woff2') format('woff2');
 }
 
-@font-face {
-  font-family: 'Inter';
-  src: url('../fonts/static/Inter-Bold.ttf') format('truetype');
-  font-weight: 700;
-}
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-:root {
-  /* Colors */
-  --clr-accent: hsl(75, 94%, 57%);
-
-  /* Neutral */
-  --clr-neutral-1: hsl(0, 0%, 20%);
-  --clr-neutral-2: hsl(0, 0%, 12%);
-
-  /* Rest of colors */
-  --white: hsl(0, 0%, 100%);
-  --black: hsl(0, 0%, 8%);
-
-  /* Typography */
-  --fs-sm: 0.875rem;
-  --fs-base: 1rem;
-  --fs-xl: 1.5rem;
-
-  /* Fonts */
-  --ff-sans: 'Inter', sans-serif;
-  --fw-normal: 400;
-  --fw-semibold: 600;
-  --fw-bold: 700;
-
-  /* Rest of vars */
-  --rounded-lg: 0.5rem;
-  --rounded-xl: 0.75rem;
-  --card-size: 24rem;
-}
-
-html {
-  line-height: 1.5;
-}
-
-body {
-  background-color: var(--black);
-  color: var(--white);
-  font-family: var(--ff-sans);
-  font-size: var(--fs-base);
-  font-weight: var(--fw-normal);
-}
-
-main {
-  min-height: 100dvh;
-  display: grid;
-  place-items: center;
-}
-
-@media screen and (max-width: 640px) {
-  body {
-    padding-inline: 1rem;
+@layer reset {
+  * {
+    border: 0 solid;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
   }
 }
 
-h1,
-h2,
-h3 {
-  text-wrap: balance;
-  margin: 0;
+@layer tokens {
+  :root {
+    --color-green: #c4f82a;
+
+    --color-grey-700: #333333;
+    --color-grey-800: #1f1f1f;
+    --color-grey-900: #141414;
+
+    --color-white: hsl(0, 0%, 100%);
+
+    --space-50: 4px;
+    --space-100: 8px;
+    --space-150: 12px;
+    --space-200: 16px;
+    --space-300: 24px;
+    --space-500: 40px;
+
+    --ff-sans: InterVariable, sans-serif;
+
+    --fs-sm: 0.875rem;
+    --fs-base: 1rem;
+    --fs-xl: 1.5rem;
+
+    --fw-normal: 400;
+    --fw-semibold: 600;
+    --fw-bold: 700;
+
+    --leading-normal: 1.5;
+
+    --rounded-lg: 0.5rem;
+    --rounded-xl: 0.75rem;
+    --rounded-full: calc(infinity * 1px);
+
+    --tracking-wide: 0.025em;
+
+    --card-size: 24rem;
+  }
 }
 
-ul {
-  list-style: none;
+@layer theme {
+  :root {
+    --secondary: var(--color-grey-700);
+    --secondary-foreground: var(--color-white);
+    --background: var(--color-grey-900);
+    --foreground: var(--color-white);
+    --accent: var(--color-green);
+    --accent-foreground: var(--color-grey-700);
+    --card: var(--color-grey-800);
+    --card-foreground: var(--color-white);
+    --ring: var(--color-green);
+  }
 }
 
-a {
-  text-decoration: none;
-  color: inherit;
+@layer base {
+  *:focus-visible {
+    outline-color: var(--ring);
+    outline-style: solid;
+    outline-width: 2px;
+    outline-offset: 2px;
+  }
+
+  html {
+    font-family: var(--ff-sans);
+    font-size: 100%; /* 16px */
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img {
+    block-size: auto;
+    max-inline-size: 100%;
+    display: block;
+  }
+
+  ul {
+    list-style: none;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: inherit;
+  }
+
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-size: var(--fs-base);
+    font-weight: var(--fw-normal);
+    line-height: var(--leading-normal);
+  }
+
+  main {
+    min-block-size: 100dvh;
+    display: grid;
+    place-items: center;
+    padding-inline: var(--space-300);
+  }
 }
 
-.img {
-  display: block;
-  object-fit: cover;
-  max-inline-size: 100%;
+@layer utilities {
+  .text-preset-1 {
+    font-size: var(--fs-xl);
+    font-weight: var(--fw-semibold);
+    letter-spacing: var(--tracking-wide);
+    line-height: var(--leading-normal);
+  }
+
+  .text-preset-2 {
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-normal);
+    line-height: var(--leading-normal);
+  }
+
+  .text-preset-2-bold {
+    font-size: var(--fs-sm);
+    font-weight: var(--fw-bold);
+    line-height: var(--leading-normal);
+  }
 }
 
-.profile-card {
-  width: 100%;
-  max-width: var(--card-size);
-  background-color: var(--clr-neutral-2);
-  text-align: center;
-  border-radius: var(--rounded-xl);
-  padding: 2.5rem;
-}
+@layer app {
+  .profile-card {
+    background-color: var(--card);
+    border-radius: var(--rounded-xl);
+    color: var(--card-foreground);
+    inline-size: 100%;
+    max-inline-size: var(--card-size);
+    padding: var(--space-300);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-300);
 
-.profile-card__img {
-  width: 5.5rem;
-  aspect-ratio: 1/1;
-  border-radius: 100%;
-  margin-inline: auto;
-}
+    @media (width >= 48rem) {
+      padding: var(--space-500);
+    }
+  }
 
-.profile-card__name {
-  font-size: 1.5rem;
-  margin-top: 1em;
-}
+  .profile-card__img {
+    aspect-ratio: 1/1;
+    border-radius: var(--rounded-full);
+    inline-size: 5.5rem;
+    margin-inline: auto;
+    object-fit: cover;
+  }
 
-.profile-card__location {
-  color: var(--clr-accent);
-  font-weight: var(--fw-bold);
-  font-size: var(--fs-sm);
-  margin-top: 0.25rem;
-}
+  .profile-card__location {
+    color: var(--accent);
+    margin-block-start: var(--space-50);
+  }
 
-.profile-card__quote {
-  display: block;
-  margin-top: 1.5rem;
-  font-size: var(--fs-sm);
-}
+  .profile-card__bio {
+    font-size: var(--fs-sm);
+  }
 
-.profile-card__social-links {
-  margin-top: 1.5em;
-}
+  .profile-card__social-links-container > * + * {
+    margin-block-start: var(--space-200);
+  }
 
-.profile-card__social-links > * {
-  margin-top: 1rem;
-}
+  .profile-card__social-link {
+    background-color: var(--secondary);
+    border-radius: var(--rounded-lg);
+    color: var(--secondary-foreground);
+    cursor: pointer;
+    display: block;
+    padding-block: var(--space-150);
+    transition:
+      background-color 160ms ease,
+      color 160ms ease,
+      scale 160ms ease-out;
 
-.profile-card__social-link {
-  background-color: var(--clr-neutral-1);
-  padding: 0.75rem;
-  border-radius: var(--rounded-lg);
-  font-size: var(--fs-sm);
-  font-weight: var(--fw-bold);
-  cursor: pointer;
-}
+    &:active {
+      scale: 0.97;
+    }
 
-.profile-card__social-link:hover {
-  background-color: var(--clr-accent);
-  color: var(--clr-neutral-2);
+    @media (hover: hover) and (pointer: fine) {
+      &:hover {
+        background-color: var(--accent);
+        color: var(--accent-foreground);
+      }
+    }
+  }
 }
